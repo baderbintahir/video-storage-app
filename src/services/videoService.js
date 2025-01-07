@@ -1,20 +1,4 @@
-// src/services/videoService.js
-const { gfs } = require('../config/db');
 const Video = require('../models/videoModel');
-const mongoose = require('mongoose');
-const fs = require('fs');
-
-// Upload video file to GridFS
-const uploadVideo = async (file, videoData) => {
-  const video = new Video({
-    title: videoData.title,
-    description: videoData.description,
-    favorite: false,
-    videoFileId: file.id,
-  });
-  await video.save();
-  return video;
-};
 
 // Get all videos
 const getAllVideos = async () => {
