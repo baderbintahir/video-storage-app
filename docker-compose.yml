@@ -11,8 +11,8 @@ services:
     ports:
       - 5000:5000
     environment:
-      - MONGO_URI=mongodb://mongodb:27018/video-storage
-      - JWT_SECRET=13b549c1d3bdfb46b2bb5b954e5abd0ee9a8fd389fb8730a76338a3d173d8603
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
     volumes:
       - .:/app
     depends_on:

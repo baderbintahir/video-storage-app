@@ -37,6 +37,7 @@ const saveVideo = async (req, res) => {
   }
 };
 
+// Update video by ID
 const updateVideoById = async (req, res) => {
   try {
     const video = await videoService.updateVideoById(req.params.id, req.body);

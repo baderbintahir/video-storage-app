@@ -1,23 +1,21 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const videoController = require('../controllers/videoController');
-const { verifyToken } = require('../middlewares/authMiddleware');
-
+const videoController = require("../controllers/videoController");
 
 // Get all videos
-router.get('/', verifyToken, videoController.getAllVideos);
+router.get("/", videoController.getAllVideos);
 
 // Get video by ID
-router.get('/:id', verifyToken, videoController.getVideoById);
+router.get("/:id", videoController.getVideoById);
 
 // Save video
-router.post('/', verifyToken, videoController.saveVideo);
+router.post("/", videoController.saveVideo);
 
 // Update video by ID
-router.put('/:id', verifyToken, videoController.updateVideoById);
+router.put("/:id", videoController.updateVideoById);
 
 // Toggle favorite
-router.patch('/:id/favorite', verifyToken, videoController.toggleFavorite);
+router.patch("/:id/favorite", videoController.toggleFavorite);
 
 module.exports = router;

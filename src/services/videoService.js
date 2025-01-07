@@ -10,12 +10,14 @@ const getVideoById = async (id) => {
   return await Video.findById(id);
 };
 
+// Save video
 const saveVideo = async (videoData) => {
   const video = new Video(videoData);
   await video.save();
   return video;
 };
 
+// Update video by ID
 const updateVideoById = async (id, videoData) => {
   const video = await Video.findByIdAndUpdate(id, videoData, { new: true });
   if (!video) throw new Error("Video not found");
