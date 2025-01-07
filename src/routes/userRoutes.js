@@ -9,9 +9,6 @@ router.get('/', userController.getAllUsers);
 // Get a user by ID
 router.get("/:id", userController.getUserById);
 
-// Create a new user
-router.post("/", userController.createUser);
-
 // Update a user by ID
 router.put("/:id", userController.updateUserById);
 
