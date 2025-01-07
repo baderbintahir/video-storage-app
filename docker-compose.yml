@@ -1,0 +1,33 @@
+# docker-compose.yml
+version: '3.7'
+
+services:
+  # Node.js backend
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: video-app
+    ports:
+      - 5000:5000
+    environment:
+      - MONGO_URI=mongodb://mongodb:27018/video-storage
+      - JWT_SECRET=13b549c1d3bdfb46b2bb5b954e5abd0ee9a8fd389fb8730a76338a3d173d8603
+    volumes:
+      - .:/app
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+
+  # MongoDB service
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - 27018:27018
+    restart: unless-stopped
+
+volumes:
+  mongodb-data:
