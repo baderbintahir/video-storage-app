@@ -1,4 +1,3 @@
-// src/config/db.js
 const mongoose = require('mongoose');
 const Grid = require('gridfs-stream');
 const path = require('path');

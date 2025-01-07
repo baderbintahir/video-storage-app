@@ -1,16 +1,17 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const userController = require('../controllers/userController');
+const userController = require("../controllers/userController");
+const { verifyToken } = require('../middlewares/authMiddleware');
 
 // Get all users
-router.get('/', userController.getAllUsers);
+router.get("/", verifyToken, userController.getAllUsers);
 
 // Get a user by ID
-router.get("/:id", userController.getUserById);
+router.get("/:id", verifyToken, userController.getUserById);
 
 // Update a user by ID
-router.put("/:id", userController.updateUserById);
+router.put("/:id", verifyToken, userController.updateUserById);
 
 // Delete a user by ID
-router.delete("/:id", userController.deleteUserById);
+router.delete("/:id", verifyToken, userController.deleteUserById);
