@@ -14,7 +14,7 @@ const app = express();
 // Middleware
 app.use(express.json()); // To parse JSON bodies
 
-// Connect to MongoDB
+// Connect to PostgreSQL
 connectDB();
 
 // Routes
